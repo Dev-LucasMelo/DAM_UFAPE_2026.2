@@ -43,7 +43,7 @@ void main() {
     for (var nota in element.value) {
       int notaConvertida = int.parse(nota);
 
-      if ( notaConvertida > 0 && notaConvertida <= 5) {
+      if (notaConvertida > 0 && notaConvertida <= 5) {
         NotasValidas.add(notaConvertida);
       } else {
         NotasInvalidas.add(notaConvertida);
@@ -57,7 +57,7 @@ void main() {
   }
 
   // QUESTÃO 2 — RELATÓRIO
-  print('RELATÓRIO DE AVALIAÇÕES');
+  print('\nRELATÓRIO DE AVALIAÇÕES');
   print('======================');
 
   // TODO: para cada aplicativo, mostre categoria, contato, quantidade de
@@ -66,6 +66,85 @@ void main() {
   // Use o enum Classificacao e switch para o texto da classificação.
   // Trate a ausência de contato e evite divisão por zero.
 
-  print('\nCATEGORIAS ENCONTRADAS');
-  // TODO: exiba as categorias sem repetições.
+  // classificação");
+  for (var registro in notasRecebidas.entries) {
+    double media = 0.0;
+    int contadorNotasPositivas = 0;
+    double porcentagemNotasPositivas = 0.0;
+
+    print("Nome: ${registro.key}");
+    print("Categoria: ${categoriasPorApp[registro.key]}");
+
+    if (contatosPorApp[registro.key] == null) {
+      print("Contato: Não informado");
+    } else {
+      print("Contato: ${contatosPorApp[registro.key]}");
+    }
+
+    print("Qtd notas de válidas: ${notasValidasPorApp[registro.key]!.length}");
+    print("Qtd notas descartadas: ${descartadasPorApp[registro.key]!.length}");
+
+    if (notasValidasPorApp[registro.key]?.isEmpty == false) {
+      for (var nota in notasValidasPorApp[registro.key] ?? []) {
+        media = media + nota;
+
+        if (nota >= 4) {
+          contadorNotasPositivas++;
+        }
+      }
+
+      media = media / notasValidasPorApp[registro.key]!.length;
+
+      porcentagemNotasPositivas =
+          (contadorNotasPositivas * 100) /
+          notasValidasPorApp[registro.key]!.length;
+
+      print("média das notas válidas: ${media}");
+      print("porcentagem de notas positivas: ${porcentagemNotasPositivas}%");
+    } else {
+      print("média das notas válidas: Não calculado");
+      print("porcentagem de notas positivas: Não calculado");
+    }
+
+    Classificacao classificacao;
+
+    if (notasValidasPorApp[registro.key]!.isEmpty) {
+      classificacao = Classificacao.semAvaliacoes;
+    } else if (media >= 4) {
+      classificacao = Classificacao.alta;
+    } else if (media >= 3) {
+      classificacao = Classificacao.regular;
+    } else {
+      classificacao = Classificacao.baixa;
+    }
+
+    switch (classificacao) {
+      case Classificacao.alta:
+        print("Classificação: Alta");
+        break;
+
+      case Classificacao.regular:
+        print("Classificação: Regular");
+        break;
+
+      case Classificacao.baixa:
+        print("Classificação: Baixa");
+        break;
+
+      case Classificacao.semAvaliacoes:
+        print("Classificação: Sem avaliações");
+        break;
+    }
+
+    print('======================\n');
+  }
+
+  print('\nCATEGORIAS ENCONTRADAS\n');
+  int contadorCategorias = 0;
+
+  for (var categoria in categoriasUnicas) {
+    contadorCategorias++;
+    print("categoria ${contadorCategorias}: ${categoria}");
+  }
+  
 }
