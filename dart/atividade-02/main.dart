@@ -17,8 +17,17 @@ abstract class Livro {
   String descricao();
 }
 
-class LivroFisico extends Livro {
+abstract interface class Emprestavel {
+  bool consultarDisponibilidade();
+
+  bool emprestar();
+
+  void devolver();
+}
+
+class LivroFisico extends Livro implements Emprestavel {
   final int numeroPaginas;
+  bool _disponivel = true;
 
   LivroFisico({
     required super.codigo,
@@ -36,6 +45,26 @@ class LivroFisico extends Livro {
       Autor: ${autor ?? 'Autor desconhecido'}
       Número de páginas: $numeroPaginas
     ''';
+  }
+
+  @override
+  bool consultarDisponibilidade() {
+    return _disponivel;
+  }
+
+  @override
+  bool emprestar() {
+    if (!_disponivel) {
+      return false;
+    }
+
+    _disponivel = false;
+    return true;
+  }
+
+  @override
+  void devolver() {
+    _disponivel = true;
   }
 }
 
@@ -89,19 +118,35 @@ void main() {
     numeroPaginas: 352,
   );
 
-  print(livroFisico.descricao());
-  print(livroDigital.descricao());
-  print(livroSemAutor.descricao());
+  List<Livro> livros = [livroFisico, livroDigital, livroSemAutor];
 
-  print('Referência: ${livroFisico.referencia}');
-  print('Referência: ${livroDigital.referencia}');
-  print('Referência: ${livroSemAutor.referencia}');
+  for (var livro in livros) {
+    print(livro.descricao());
+    print('Referência: ${livro.referencia}');
+    print('----------------------------');
+  }
 
-  livroFisico.titulo = '  A República - Edição Comentada  ';
-
-  print('\nNovo título: ${livroFisico.titulo}');
+  livroFisico.titulo = ' A República - Edição Comentada ';
+  print('Novo título: ${livroFisico.titulo}');
 
   livroFisico.titulo = '   ';
-
   print('Título após entrada em branco: ${livroFisico.titulo}');
+
+  print('\n===== EMPRÉSTIMOS =====');
+
+  print('Disponível: ${livroFisico.consultarDisponibilidade()}');
+
+  if (livroFisico.emprestar()) {
+    print('Empréstimo realizado com sucesso!');
+  }
+
+  if (livroFisico.emprestar()) {
+    print('Empréstimo realizado com sucesso!');
+  } else {
+    print('Empréstimo recusado: livro já emprestado.');
+  }
+
+  livroFisico.devolver();
+
+  print('Disponível após devolução: ${livroFisico.consultarDisponibilidade()}');
 }
