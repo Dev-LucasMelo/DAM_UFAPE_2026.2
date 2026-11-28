@@ -1,0 +1,620 @@
+[1mdiff --git a/analysis_options.yaml b/analysis_options.yaml[m
+[1mindex 61b6c4d..efbedf1 100644[m
+[1m--- a/analysis_options.yaml[m
+[1m+++ b/analysis_options.yaml[m
+[36m@@ -7,6 +7,13 @@[m
+ [m
+ # The following line activates a set of recommended lints for Flutter apps,[m
+ # packages, and plugins designed to encourage good coding practices.[m
+[32m+[m[32manalyzer:[m
+[32m+[m[32m  exclude:[m
+[32m+[m[32m    - build/**[m
+[32m+[m[32m    - android/**[m
+[32m+[m[32m    - ios/**[m
+[32m+[m[32m    - web/**[m
+[32m+[m[32m    - windows/**[m
+ include: package:flutter_lints/flutter.yaml[m
+ [m
+ linter:[m
+[1mdiff --git a/pubspec.lock b/pubspec.lock[m
+[1mindex 709696a..b4b1138 100644[m
+[1m--- a/pubspec.lock[m
+[1m+++ b/pubspec.lock[m
+[36m@@ -5,91 +5,104 @@[m [mpackages:[m
+     dependency: transitive[m
+     description:[m
+       name: async[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: e2eb0491ba5ddb6177742d2da23904574082139b07c1e33b8503b9f46f3e1a37[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+[31m-    version: "2.9.0"[m
+[32m+[m[32m    version: "2.13.1"[m
+   boolean_selector:[m
+     dependency: transitive[m
+     description:[m
+       name: boolean_selector[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "5bbf32bc9e518d41ec49718e2931cd4527292c9b0c6d2dffcf7fe6b9a8a8cf72"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "2.1.0"[m
+   characters:[m
+     dependency: transitive[m
+     description:[m
+       name: characters[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: faf38497bda5ead2a8c7615f4f7939df04333478bf32e4173fcb06d428b5716b[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+[31m-    version: "1.2.1"[m
+[32m+[m[32m    version: "1.4.1"[m
+   clock:[m
+     dependency: transitive[m
+     description:[m
+       name: clock[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: e51d50bca3217c9a9fa2b41a30e4a38971133f5f9ec7a3d57bae095007f1d28e[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+[31m-    version: "1.1.1"[m
+[32m+[m[32m    version: "1.1.3"[m
+   collection:[m
+     dependency: transitive[m
+     description:[m
+       name: collection[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "2f5709ae4d3d59dd8f7cd309b4e023046b57d8a6c82130785d2b0e5868084e76"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+[31m-    version: "1.16.0"[m
+[32m+[m[32m    version: "1.19.1"[m
+   crypto:[m
+     dependency: transitive[m
+     description:[m
+       name: crypto[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: aa274aa7774f8964e4f4f38cc994db7b6158dd36e9187aaceaddc994b35c6c67[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "3.0.2"[m
+   cupertino_icons:[m
+     dependency: "direct main"[m
+     description:[m
+       name: cupertino_icons[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: e35129dc44c9118cee2a5603506d823bab99c68393879edb440e0090d07586be[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "1.0.5"[m
+   device_frame:[m
+     dependency: transitive[m
+     description:[m
+       name: device_frame[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: afe76182aec178d171953d9b4a50a43c57c7cf3c77d8b09a48bf30c8fa04dd9d[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "1.1.0"[m
+   device_preview:[m
+     dependency: "direct main"[m
+     description:[m
+       name: device_preview[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "2f097bf31b929e15e6756dbe0ec1bcb63952ab9ed51c25dc5a2c722d2b21fdaf"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "1.1.0"[m
+   device_preview_screenshot:[m
+     dependency: "direct main"[m
+     description:[m
+       name: device_preview_screenshot[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: c79f185e155c0ed5d97b4e1afff6df181c2045fe28c7414c95f0b46307c549e6[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "1.0.0"[m
+   fake_async:[m
+     dependency: transitive[m
+     description:[m
+       name: fake_async[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "5368f224a74523e8d2e7399ea1638b37aecfca824a3cc4dfdf77bf1fa905ac44"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+[31m-    version: "1.3.1"[m
+[32m+[m[32m    version: "1.3.3"[m
+   ffi:[m
+     dependency: transitive[m
+     description:[m
+       name: ffi[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: a38574032c5f1dd06c4aee541789906c12ccaab8ba01446e800d9c5b79c4a978[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "2.0.1"[m
+   file:[m
+     dependency: transitive[m
+     description:[m
+       name: file[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "1b92bec4fc2a72f59a8e15af5f52cd441e4a7860b49499d69dfa817af20e925d"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "6.1.4"[m
+   flutter:[m
+[36m@@ -101,7 +114,8 @@[m [mpackages:[m
+     dependency: "direct dev"[m
+     description:[m
+       name: flutter_lints[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: aeb0b80a8b3709709c9cc496cdc027c5b3216796bc0af0ce1007eaf24464fd4c[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "2.0.1"[m
+   flutter_localizations:[m
+[36m@@ -113,7 +127,8 @@[m [mpackages:[m
+     dependency: "direct main"[m
+     description:[m
+       name: flutter_swipe_action_cell[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "1a50df84c67a94083dc19f5320b04b3aa692e1f0d78a24ea56c10428d4c4b7d1"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "3.0.4"[m
+   flutter_test:[m
+[36m@@ -130,322 +145,391 @@[m [mpackages:[m
+     dependency: transitive[m
+     description:[m
+       name: freezed_annotation[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: aeac15850ef1b38ee368d4c53ba9a847e900bb2c53a4db3f6881cbb3cb684338[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "2.2.0"[m
+   google_fonts:[m
+     dependency: "direct main"[m
+     description:[m
+       name: google_fonts[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "8f099045e2f2a30e4d4d0a35f40c6bc941a8f2ca0e10ad9d214ee9edd3f37483"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "3.0.1"[m
+   http:[m
+     dependency: transitive[m
+     description:[m
+       name: http[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "6aa2946395183537c8b880962d935877325d6a09a2867c3970c05c0fed6ac482"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "0.13.5"[m
+   http_parser:[m
+     dependency: transitive[m
+     description:[m
+       name: http_parser[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "2aa08ce0341cc9b354a498388e30986515406668dbcc4f7c950c3e715496693b"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "4.0.2"[m
+   intl:[m
+     dependency: transitive[m
+     description:[m
+       name: intl[m
+[31m-      url: "https://pub.dartlang.org"[m
+[31m-    source: hosted[m
+[31m-    version: "0.17.0"[m
+[31m-  js:[m
+[31m-    dependency: transitive[m
+[31m-    description:[m
+[31m-      name: js[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "1ca20c894b1717686a2319b8548763d812bc0aabdac580420a44c5178c57a867"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+[31m-    version: "0.6.4"[m
+[32m+[m[32m    version: "0.20.3"[m
+   json_annotation:[m
+     dependency: transitive[m
+     description:[m
+       name: json_annotation[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "3520fa844009431b5d4491a5a778603520cdc399ab3406332dcc50f93547258c"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "4.7.0"[m
+[32m+[m[32m  leak_tracker:[m
+[32m+[m[32m    dependency: transitive[m
+[32m+[m[32m    description:[m
+[32m+[m[32m      name: leak_tracker[m
+[32m+[m[32m      sha256: "33e2e26bdd85a0112ec15400c8cbffea70d0f9c3407491f672a2fad47915e2de"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+[32m+[m[32m    source: hosted[m
+[32m+[m[32m    version: "11.0.2"[m
+[32m+[m[32m  leak_tracker_flutter_testing:[m
+[32m+[m[32m    dependency: transitive[m
+[32m+[m[32m    description:[m
+[32m+[m[32m      name: leak_tracker_flutter_testing[m
+[32m+[m[32m      sha256: "1dbc140bb5a23c75ea9c4811222756104fbcd1a27173f0c34ca01e16bea473c1"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+[32m+[m[32m    source: hosted[m
+[32m+[m[32m    version: "3.0.10"[m
+[32m+[m[32m  leak_tracker_testing:[m
+[32m+[m[32m    dependency: transitive[m
+[32m+[m[32m    description:[m
+[32m+[m[32m      name: leak_tracker_testing[m
+[32m+[m[32m      sha256: "8d5a2d49f4a66b49744b23b018848400d23e54caf9463f4eb20df3eb8acb2eb1"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+[32m+[m[32m    source: hosted[m
+[32m+[m[32m    version: "3.0.2"[m
+   lints:[m
+     dependency: transitive[m
+     description:[m
+       name: lints[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "5e4a9cd06d447758280a8ac2405101e0e2094d2a1dbdd3756aec3fe7775ba593"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "2.0.1"[m
+   matcher:[m
+     dependency: transitive[m
+     description:[m
+       name: matcher[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "31bd099b47c10cd1aeb55146a2d46ce0277630ecef3f7dae54ad7873f36696cd"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+[31m-    version: "0.12.12"[m
+[32m+[m[32m    version: "0.12.20"[m
+   material_color_utilities:[m
+     dependency: transitive[m
+     description:[m
+       name: material_color_utilities[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "9c337007e82b1889149c82ed242ed1cb24a66044e30979c44912381e9be4c48b"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+[31m-    version: "0.1.5"[m
+[32m+[m[32m    version: "0.13.0"[m
+   meta:[m
+     dependency: transitive[m
+     description:[m
+       name: meta[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "307249ce4ff29d58a18e97f6345f539382eb9c9c29ecda628900f31de0443dd9"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+[31m-    version: "1.8.0"[m
+[32m+[m[32m    version: "1.19.0"[m
+   nested:[m
+     dependency: transitive[m
+     description:[m
+       name: nested[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "03bac4c528c64c95c722ec99280375a6f2fc708eec17c7b3f07253b626cd2a20"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "1.0.0"[m
+   path:[m
+     dependency: transitive[m
+     description:[m
+       name: path[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "75cca69d1490965be98c73ceaea117e8a04dd21217b37b292c9ddbec0d955bc5"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+[31m-    version: "1.8.2"[m
+[32m+[m[32m    version: "1.9.1"[m
+   path_provider:[m
+     dependency: transitive[m
+     description:[m
+       name: path_provider[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "050e8e85e4b7fecdf2bb3682c1c64c4887a183720c802d323de8a5fd76d372dd"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "2.0.11"[m
+   path_provider_android:[m
+     dependency: transitive[m
+     description:[m
+       name: path_provider_android[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "4d5542667150f5b779ba411dd5dc0b674a85d1355e45bda2877e0e82f4ad08d8"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "2.0.20"[m
+   path_provider_ios:[m
+     dependency: transitive[m
+     description:[m
+       name: path_provider_ios[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "03d639406f5343478352433f00d3c4394d52dac8df3d847869c5e2333e0bbce8"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "2.0.11"[m
+   path_provider_linux:[m
+     dependency: transitive[m
+     description:[m
+       name: path_provider_linux[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: ab0987bf95bc591da42dffb38c77398fc43309f0b9b894dcc5d6f40c4b26c379[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "2.1.7"[m
+   path_provider_macos:[m
+     dependency: transitive[m
+     description:[m
+       name: path_provider_macos[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "2a97e7fbb7ae9dcd0dfc1220a78e9ec3e71da691912e617e8715ff2a13086ae8"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "2.0.6"[m
+   path_provider_platform_interface:[m
+     dependency: transitive[m
+     description:[m
+       name: path_provider_platform_interface[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: f0abc8ebd7253741f05488b4813d936b4d07c6bae3e86148a09e342ee4b08e76[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "2.0.5"[m
+   path_provider_windows:[m
+     dependency: transitive[m
+     description:[m
+       name: path_provider_windows[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: bcabbe399d4042b8ee687e17548d5d3f527255253b4a639f5f8d2094a9c2b45c[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "2.1.3"[m
+   platform:[m
+     dependency: transitive[m
+     description:[m
+       name: platform[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "4a451831508d7d6ca779f7ac6e212b4023dd5a7d08a27a63da33756410e32b76"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "3.1.0"[m
+   plugin_platform_interface:[m
+     dependency: transitive[m
+     description:[m
+       name: plugin_platform_interface[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: dbf0f707c78beedc9200146ad3cb0ab4d5da13c246336987be6940f026500d3a[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "2.1.3"[m
+   process:[m
+     dependency: transitive[m
+     description:[m
+       name: process[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "53fd8db9cec1d37b0574e12f07520d582019cb6c44abf5479a01505099a34a09"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "4.2.4"[m
+   provider:[m
+     dependency: "direct main"[m
+     description:[m
+       name: provider[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: e1e7413d70444ea3096815a60fe5da1b11bda8a9dc4769252cc82c53536f8bcc[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "6.0.4"[m
+   shared_preferences:[m
+     dependency: transitive[m
+     description:[m
+       name: shared_preferences[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "76917b7d4b9526b2ba416808a7eb9fb2863c1a09cf63ec85f1453da240fa818a"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "2.0.15"[m
+   shared_preferences_android:[m
+     dependency: transitive[m
+     description:[m
+       name: shared_preferences_android[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "8e251f3c986002b65fed6396bce81f379fb63c27317d49743cf289fd0fd1ab97"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "2.0.14"[m
+   shared_preferences_ios:[m
+     dependency: transitive[m
+     description:[m
+       name: shared_preferences_ios[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "585a14cefec7da8c9c2fb8cd283a3bb726b4155c0952afe6a0caaa7b2272de34"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "2.1.1"[m
+   shared_preferences_linux:[m
+     dependency: transitive[m
+     description:[m
+       name: shared_preferences_linux[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "28aefc1261746e7bad3d09799496054beb84e8c4ffcdfed7734e17b4ada459a5"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "2.1.1"[m
+   shared_preferences_macos:[m
+     dependency: transitive[m
+     description:[m
+       name: shared_preferences_macos[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: fbb94bf296576f49be37a1496d5951796211a8db0aa22cc0d68c46440dad808c[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "2.0.4"[m
+   shared_preferences_platform_interface:[m
+     dependency: transitive[m
+     description:[m
+       name: shared_preferences_platform_interface[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: da9431745ede5ece47bc26d5d73a9d3c6936ef6945c101a5aca46f62e52c1cf3[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "2.1.0"[m
+   shared_preferences_web:[m
+     dependency: transitive[m
+     description:[m
+       name: shared_preferences_web[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: a4b5bc37fe1b368bbc81f953197d55e12f49d0296e7e412dfe2d2d77d6929958[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "2.0.4"[m
+   shared_preferences_windows:[m
+     dependency: transitive[m
+     description:[m
+       name: shared_preferences_windows[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "97f7ab9a7da96d9cf19581f5de520ceb529548498bd6b5e0ccd02d68a0d15eba"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "2.1.1"[m
+   sky_engine:[m
+     dependency: transitive[m
+     description: flutter[m
+     source: sdk[m
+[31m-    version: "0.0.99"[m
+[32m+[m[32m    version: "0.0.0"[m
+   source_span:[m
+     dependency: transitive[m
+     description:[m
+       name: source_span[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: e3320978e3715725e62f04358fd249c1efe5999297b2c6acd626a817593281b0[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "1.9.0"[m
+   sqflite:[m
+     dependency: "direct main"[m
+     description:[m
+       name: sqflite[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "90cf48fff79b921612c5b78df00930690fdb922b7120d39d8bb04dbc42fc1297"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "2.2.0+2"[m
+   sqflite_common:[m
+     dependency: transitive[m
+     description:[m
+       name: sqflite_common[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "0c21a187d645aa65da5be6997c0c713eed61e049158870ae2de157e6897067ab"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "2.4.0+2"[m
+   stack_trace:[m
+     dependency: transitive[m
+     description:[m
+       name: stack_trace[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "277654b3034d17ac6f9f1cb5595db011b1d5d41e8806866db28e0abaa101c490"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+[31m-    version: "1.10.0"[m
+[32m+[m[32m    version: "1.12.2"[m
+   stream_channel:[m
+     dependency: transitive[m
+     description:[m
+       name: stream_channel[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "969e04c80b8bcdf826f8f16579c7b14d780458bd97f56d107d3950fdbeef059d"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+[31m-    version: "2.1.0"[m
+[32m+[m[32m    version: "2.1.4"[m
+   string_scanner:[m
+     dependency: transitive[m
+     description:[m
+       name: string_scanner[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "862015c5db1f3f3c4ea3b94dc2490363a84262994b88902315ed74be1155612f"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "1.1.1"[m
+   synchronized:[m
+     dependency: transitive[m
+     description:[m
+       name: synchronized[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "7b530acd9cb7c71b0019a1e7fa22c4105e675557a4400b6a401c71c5e0ade1ac"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "3.0.0+3"[m
+   term_glyph:[m
+     dependency: transitive[m
+     description:[m
+       name: term_glyph[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: a29248a84fbb7c79282b40b8c72a1209db169a2e0542bce341da992fe1bc7e84[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "1.2.1"[m
+   test_api:[m
+     dependency: transitive[m
+     description:[m
+       name: test_api[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "2a122cbe059f8b610d3a5415f42e255b6c17b1f21eee1d960f31080237fb4f11"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+[31m-    version: "0.4.12"[m
+[32m+[m[32m    version: "0.7.12"[m
+   typed_data:[m
+     dependency: transitive[m
+     description:[m
+       name: typed_data[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "26f87ade979c47a150c9eaab93ccd2bebe70a27dc0b4b29517f2904f04eb11a5"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "1.3.1"[m
+   vector_math:[m
+     dependency: transitive[m
+     description:[m
+       name: vector_math[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: fa49e1674cb84acb900141714e6c6e1f9ae099827c24d141430ff6819db4e1bc[m
+[32m+[m[32m      url: "https://pub.dev"[m
+[32m+[m[32m    source: hosted[m
+[32m+[m[32m    version: "2.4.4"[m
+[32m+[m[32m  vm_service:[m
+[32m+[m[32m    dependency: transitive[m
+[32m+[m[32m    description:[m
+[32m+[m[32m      name: vm_service[m
+[32m+[m[32m      sha256: "89b11d62e1040ee681af3b4f1c97a803ecbf010c6e8b9c5896ee5b08c3bf7b78"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+[31m-    version: "2.1.2"[m
+[32m+[m[32m    version: "15.4.0"[m
+   win32:[m
+     dependency: transitive[m
+     description:[m
+       name: win32[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "9555cd63283445e101f0df32105862fdc0b30adb9b84fd0553e9433b3e074d4c"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "3.0.1"[m
+   xdg_directories:[m
+     dependency: transitive[m
+     description:[m
+       name: xdg_directories[m
+[31m-      url: "https://pub.dartlang.org"[m
+[32m+[m[32m      sha256: "11541eedefbcaec9de35aa82650b695297ce668662bbd6e3911a7fabdbde589f"[m
+[32m+[m[32m      url: "https://pub.dev"[m
+     source: hosted[m
+     version: "0.2.0+2"[m
+ sdks:[m
+[31m-  dart: ">=2.18.2 <3.0.0"[m
+[31m-  flutter: ">=3.3.0"[m
+[32m+[m[32m  dart: ">=3.11.0-0 <4.0.0"[m
+[32m+[m[32m  flutter: ">=3.18.0-18.0.pre.54"[m
