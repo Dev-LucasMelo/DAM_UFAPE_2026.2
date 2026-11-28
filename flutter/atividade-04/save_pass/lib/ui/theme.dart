@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:save_pass/ui/colors.dart';
 import 'package:save_pass/ui/text_styles.dart';
@@ -5,13 +6,17 @@ import 'package:save_pass/ui/text_styles.dart';
 const _smallTextScaleFactor = 0.80;
 const _largeTextScaleFactor = 1.20;
 
-/// Namespace for the App [ThemeData].
 class AppTheme {
-  /// Dark `ThemeData` for App UI.
   static ThemeData get dark {
     return ThemeData(
       primaryColor: AppColors.primary,
       scaffoldBackgroundColor: AppColors.black900,
+      colorScheme: const ColorScheme.dark(
+        primary: AppColors.primary,
+        secondary: AppColors.primaryLight,
+        surface: AppColors.black800,
+        error: AppColors.red,
+      ),
       appBarTheme: _appBarTheme,
       elevatedButtonTheme: _elevatedButtonTheme,
       outlinedButtonTheme: _outlinedButtonTheme,
@@ -26,17 +31,14 @@ class AppTheme {
     );
   }
 
-  /// `ThemeData` for App UI for small screens.
   static ThemeData get small {
     return dark.copyWith(textTheme: _smallTextTheme);
   }
 
-  /// `ThemeData` for App UI for medium screens.
   static ThemeData get medium {
     return dark.copyWith(textTheme: _smallTextTheme);
   }
 
-  /// `ThemeData` for App UI for large screens.
   static ThemeData get large {
     return dark.copyWith(textTheme: _largeTextTheme);
   }
@@ -95,7 +97,8 @@ class AppTheme {
 
   static AppBarTheme get _appBarTheme {
     return AppBarTheme(
-      color: AppColors.primary,
+      backgroundColor: AppColors.primaryDark,
+      foregroundColor: AppColors.white,
       titleTextStyle: AppTextStyle.headline6,
     );
   }
@@ -108,6 +111,7 @@ class AppTheme {
           borderRadius: BorderRadius.all(Radius.circular(30)),
         ),
         backgroundColor: AppColors.primary,
+        foregroundColor: AppColors.white,
         fixedSize: const Size(208, 54),
       ),
     );
@@ -120,7 +124,10 @@ class AppTheme {
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(30)),
         ),
-        side: const BorderSide(color: AppColors.white, width: 2),
+        side: const BorderSide(
+          color: AppColors.primary,
+          width: 2,
+        ),
         fixedSize: const Size(208, 54),
       ),
     );
@@ -163,7 +170,7 @@ class AppTheme {
         ),
       ),
       labelColor: AppColors.primary,
-      unselectedLabelColor: AppColors.black25,
+      unselectedLabelColor: AppColors.gray500,
       indicatorSize: TabBarIndicatorSize.tab,
     );
   }

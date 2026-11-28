@@ -57,11 +57,33 @@ class SQlitePasswordRepository implements IPasswordRepository {
   static Future<Database> open() async {
     return openDatabase(
       'passwords.db',
-      version: 1,
-      onCreate: (db, version) {
-        return db.execute(
-          'CREATE TABLE passwords(service_name TEXT PRIMARY KEY, username TEXT, password TEXT)',
+      version: 3,
+      onCreate: (db, version) async {
+        await db.execute(
+          'CREATE TABLE passwords('
+          'service_name TEXT PRIMARY KEY, '
+          'username TEXT, '
+          'password TEXT)',
         );
+
+        await db.execute(
+          'CREATE TABLE IF NOT EXISTS profile('
+          'id INTEGER PRIMARY KEY CHECK (id = 1), '
+          'username TEXT NOT NULL, '
+          'email TEXT NOT NULL, '
+          'password TEXT NOT NULL)',
+        );
+      },
+      onUpgrade: (db, oldVersion, newVersion) async {
+        if (oldVersion < 3) {
+          await db.execute(
+            'CREATE TABLE IF NOT EXISTS profile('
+            'id INTEGER PRIMARY KEY CHECK (id = 1), '
+            'username TEXT NOT NULL, '
+            'email TEXT NOT NULL, '
+            'password TEXT NOT NULL)',
+          );
+        }
       },
     );
   }

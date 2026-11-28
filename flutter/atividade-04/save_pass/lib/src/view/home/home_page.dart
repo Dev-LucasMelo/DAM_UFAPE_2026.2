@@ -32,48 +32,69 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget header(BuildContext context) {
+  Widget header(BuildContext context, SQlitePasswordController controller) {
+    final username = controller.profile?.username ?? 'Seu perfil';
+
+    final initials = username
+        .trim()
+        .split(RegExp(r'\s+'))
+        .where((part) => part.isNotEmpty)
+        .take(2)
+        .map((part) => part[0].toUpperCase())
+        .join();
+
     return SizedBox(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Row(
-            children: [
-              Container(
-                decoration: const BoxDecoration(
-                  color: AppColors.black900,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(8),
-                  ),
-                ),
-                width: 48,
-                height: 48,
-                child: Center(
-                  child: Text(
-                    "AL",
-                    style: AppTextStyle.headline6
-                        .copyWith(color: AppColors.primary),
-                  ),
-                ),
-              ),
-              const SizedBox(width: 16),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text.rich(
-                    TextSpan(
-                      text: 'Olá, ',
-                      style: AppTextStyle.headline5,
-                      children: [
-                        TextSpan(
-                            text: 'Alex Lopes', style: AppTextStyle.headline4),
-                      ],
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, '/profile');
+            },
+            child: Row(
+              children: [
+                Container(
+                  decoration: const BoxDecoration(
+                    color: AppColors.black900,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(8),
                     ),
                   ),
-                  Text('Sinta-se seguro aqui', style: AppTextStyle.subtitle2),
-                ],
-              ),
-            ],
+                  width: 48,
+                  height: 48,
+                  child: Center(
+                    child: Text(
+                      initials.isEmpty ? 'SP' : initials,
+                      style: AppTextStyle.headline6.copyWith(
+                        color: AppColors.primary,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 16),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text.rich(
+                      TextSpan(
+                        text: 'Olá, ',
+                        style: AppTextStyle.headline5,
+                        children: [
+                          TextSpan(
+                            text: username,
+                            style: AppTextStyle.headline4,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Text(
+                      'Sinta-se seguro aqui',
+                      style: AppTextStyle.subtitle2,
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
           Container(
             decoration: BoxDecoration(
@@ -108,7 +129,7 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 48),
-                  header(context),
+                  header(context, controller),
                   const SizedBox(height: 24),
                   SearchTextField(
                     hintText: 'Qual senha você procura?',
